@@ -1,4 +1,4 @@
-<?php
+<?ph
 
 namespace App\Http\Resources;
 
@@ -16,7 +16,7 @@ class Launch extends JsonResource
     public function toArray($request)
     {
         $date = Carbon::createFromTimestamp(strtotime($this->resource->launch_date_utc));
-        
+
         return [
             'number' => $this->resource->flight_number,
             'date' => $date->format('Y-m-d'),

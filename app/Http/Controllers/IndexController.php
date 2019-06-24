@@ -9,6 +9,6 @@ class IndexController extends Controller
 {
     public function index(RemoteSourceInterface $remoteResource, BaseRequest $request)
     {
-        return $remoteResource->fetch($request->all());
+         return response()->json($remoteResource->fetch($request->all()));
     }
 }

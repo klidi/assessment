@@ -16,9 +16,10 @@ class LaunchCollection extends ResourceCollection
     {
         return [
             'data' => $this->collection,
-            'links' => [
-                'self' => 'link-value',
-            ],
+            'meta' => [
+                'request' => $request,
+                'timestamp' => strtotime('now'),
+            ]
         ];
     }
 }

@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Http\Resources\Launch as LaunchResource;
+use App\Http\Resources\LaunchCollection;
+
 class SpaceXDataService extends AbstractRemoteSourceService implements Interfaces\RemoteSourceInterface
 {
 	const BASEURL = "https://api.spacexdata.com/";

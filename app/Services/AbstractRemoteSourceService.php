@@ -23,13 +23,10 @@ abstract class AbstractRemoteSourceService implements Interfaces\RemoteSourceInt
 
 		$content = $this->submit('get', $this->uri, $options, $this->uriParams);
 
-		$data = [];
-		foreach ($content as $key => $value) {
-			$data[] = $this->resource::make($value)->resolve();
-		}
-
-		$data = collect($data)->recursive();
-
+		$data = collect($content)->map(function($row){
+		      return $this->resource::make($row)->resolve();
+		});
+		
 		return new $this->collection($data);
 	}
 
