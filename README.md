@@ -5,7 +5,7 @@ The API backend will have to connect to one or more remote sources, retrieve its
 
 Project is build with Laravel 5.8, i had a choice to make in this matter but due to my time beeing very very limited i picked Laravel instead of Lumen. I thought also to do something in Phoenix(elixir/erlang) just to show a different aproach with a different paradigm but again my time is very very limited. (Some devs are on vacation hole month and my parents are here to visit us since last week so between all this and kid leaves me almost no time for this)
 
-## Requirements Installation
+## Requirements & Installation
 
 PHP >= 7.1.3	
 
@@ -75,5 +75,6 @@ And this is how we register it
 The solution is very simple, in case of extensive amount of pluged in services we can move $avaiableSource in the config file
 
 
+THANK YOU FOR TAKING TIME AND REVIEWING MY ASSESSMENT :)
 
 
