@@ -34,6 +34,7 @@ class RemoteSourceServiceProvider extends ServiceProvider
                 $service = $this->avaiableSources[$request->get('sourceId')];
                 return new $service;
             }
+            // we can also make a custom exception for this
             throw new HttpException(404);
         });
     }
