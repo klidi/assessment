@@ -15,17 +15,16 @@ trait GuzzleTrait
 	{
 		return new Client([
 		    'base_uri' => $this->baseUrl,
-		    'verify' => false
 		]);
 	}
 
 	/**
 	 * Makes guzzle request
 	 *
-	 * @param string $method
-	 * @param string $uri
-	 * @param array $options
-	 * @param array $uriParams
+	 * @param  string $method
+	 * @param  string $uri
+	 * @param  array $options
+	 * @param  array $uriParams
 	 * @return GuzzleHttp\Client
 	 */
 	protected function makeCall(string $method, string $uri, array $options, array $uriParams): array
@@ -47,13 +46,10 @@ trait GuzzleTrait
 	}
 
 	/**
-	 * Makes guzzle request
+	 * Prepare guzzle url by replacing uri varibles/params
 	 *
-	 * @param string $method
-	 * @param string $uri
-	 * @param array $options
-	 * @param array $uriParams
-	 * @return GuzzleHttp\Client
+	 * @param  array $uriParams
+	 * @return string
 	 */
 	protected function prepareUrl(array $uriParams): string
 	{
