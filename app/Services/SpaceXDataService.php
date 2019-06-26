@@ -12,8 +12,6 @@ class SpaceXDataService extends AbstractRemoteSourceService implements Interface
 
 	protected $baseUrl = self::BASEURL;
 	protected $uri = '/' . self::VERSION . self:: ENDPOINT;
-	protected $resource = 'App\Http\Resources\Launch';
-	protected $collection = 'App\Http\Resources\LaunchCollection';
 
 	/**
 	 * Since we are hiting only one specific endpoint
@@ -26,12 +24,35 @@ class SpaceXDataService extends AbstractRemoteSourceService implements Interface
 	 */
 	const ENDPOINT = "/launches";
 
+	/**
+	 * its neccesary to have a mapping of parameters
+	 * for each resource as the param keys might be
+	 * different
+	 *
+	 */
 	protected $paramsMapping = [
-		'year' => 'launch_year',
+		'year'          => 'launch_year',
 		'flight_number' => 'flight_number',
-		'limit' => 'limit',
-		'offset' => 'offset'
+		'limit'         => 'limit',
+		'offset'        => 'offset',
+		'sort'          => 'sort',
+		'order'         => 'order',
 	];
 
+	/**
+	 * this holds the key of guzzle request params
+	 * can be either body|json|query
+	 */
 	protected $paramType = "query";
+
+	/**
+	 * this is the concrete implementation on the abstract method in parent class
+	 *
+	 * @param array $data
+	 * @return collection LaunchCollection
+	 */
+	protected function makeCollection(array $data): LaunchCollection
+	{
+		return new LaunchCollection(collect($data));
+	}
 }

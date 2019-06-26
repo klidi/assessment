@@ -6,7 +6,11 @@ use GuzzleHttp\Client;
 
 trait GuzzleTrait
 {
-
+	/**
+	 * Initialize guzzle client
+	 *
+	 * @return GuzzleHttp\Client
+	 */
 	protected function initializeClient()
 	{
 		return new Client([
@@ -15,12 +19,24 @@ trait GuzzleTrait
 		]);
 	}
 
-	protected function submit($method, $uri, $options, $uriParams)
+	/**
+	 * Makes guzzle request
+	 *
+	 * @param string $method
+	 * @param string $uri
+	 * @param array $options
+	 * @param array $uriParams
+	 * @return GuzzleHttp\Client
+	 */
+	protected function makeCall(string $method, string $uri, array $options, array $uriParams): array
 	{
-		$client = $this->initializeClient();
+		$url = $uri;
+		if (!empty($uriParams)) {
+			$url = $this->prepareUrl($uriParams);
+		}
 
 		try {
-	        $response = $client->$method($uri, $options);
+	        $response = $this->client->$method($url, $options);
 	       	return json_decode($response->getBody()->getContents());
 	    } catch (\GuzzleHttp\Exception\GuzzleException $e) {
     	    if ($e->hasResponse()) {
@@ -30,6 +46,15 @@ trait GuzzleTrait
 	    }
 	}
 
+	/**
+	 * Makes guzzle request
+	 *
+	 * @param string $method
+	 * @param string $uri
+	 * @param array $options
+	 * @param array $uriParams
+	 * @return GuzzleHttp\Client
+	 */
 	protected function prepareUrl(array $uriParams): string
 	{
 		return \GuzzleHttp\uri_template($this->baseUrl, $uriParams);

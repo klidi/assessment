@@ -18,6 +18,8 @@ class BaseRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
+     * i am addding validation only for the 2 params we are going
+     * to use more can be added in feature.
      *
      * @return array
      */
