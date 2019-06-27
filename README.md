@@ -27,7 +27,7 @@ The index route is only accepting GET method though from the examples looked lik
 
 The api accepts other parameters like offset, order, sort. P.s offset does not give the expected result from spaceX api.
 
-On the request/response examples the comics response is a spacex response , from there i can not assume what properties will go in the response and also what parameters will be used for that resource. Also by looking at comics api does not help in this matter. I have prepared the infrastructure to plug it in and stoped there.
+On the request/response examples the comics response is a spacex response , from there i can not assume what properties will go in the response for. Also by looking at comics api does not help in this matter. I have prepared the infrastructure to plug it in and stoped there.If i find time today i will try and integrate it.
 
 In the controller index Action:
 
