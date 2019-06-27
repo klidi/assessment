@@ -5,6 +5,14 @@ The API backend will have to connect to one or more remote sources, retrieve its
 
 Project is build with Laravel 5.8, i had a choice to make in this matter but due to my time beeing very very limited i picked Laravel instead of Lumen. I thought also to do something in Phoenix(elixir/erlang) just to show a different aproach with a different paradigm but again my time is very very limited. Above all i would have liked to make test for this before i started to work but it would cost me 30% more time (Some devs are on vacation hole month including PO and my parents are here to visit us since last week so between all this and kid leaves me almost no time for the assessment)
 
+UPDATE : i took a close look at the comics api and its possible to navigate by calculating the last number and first number for each year.
+The publications of comics are regular , on even years starts at first of jan end the sequence is like this:
+1 3 6 8 10 13 15...
+on odd years the sequence is like this:
+2 4 7 9 11 14 16...
+and it resets each month
+
+
 ## Requirements & Installation
 
 PHP >= 7.1.3	
